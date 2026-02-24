@@ -30,7 +30,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='flixterplus.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='FlixterPlusPt2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
