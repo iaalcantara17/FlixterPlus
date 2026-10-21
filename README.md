@@ -1,40 +1,38 @@
-# Android Project 4 - FlixterPlus
+# FlixterPlus
 
-Submitted by: **Israel Alcantara**
+An Android app for browsing popular and top-rated movies from The Movie Database (TMDB). I built it as Project 4 of CodePath's Android course.
 
-**FlixterPlus** is a movie browsing app that allows users to browse popular and top-rated movies from The Movie Database (TMDB) API and view detailed information on a separate details screen.
+<img src="FlixterPlusPt2.gif" alt="Walkthrough of the popular and top-rated lists and the movie details screen" width="300" />
 
-Time spent: **4** hours spent in total
+## What it does
 
-## Required Features
+- Shows popular movies in a vertical list with poster, title, and overview. In landscape the list switches to a two-column grid.
+- Shows top-rated movies in a horizontal row of posters above it.
+- Tapping a movie opens a details screen with the backdrop, poster, overview, release date, rating, vote count, and popularity.
+- The poster slides into the details screen with a shared element transition.
+- Images load with Glide and have rounded corners.
 
-The following **required** functionality is completed:
+## Tech stack
 
-- [x] **Choose any endpoint on The MovieDB API except `now_playing`**
-  - Chosen Endpoint: `GET https://api.themoviedb.org/3/movie/popular`
-- [x] **Make a request to your chosen endpoint and implement a RecyclerView to display all entries**
-- [x] **Use Glide to load and display at least one image per entry**
-- [x] **Click on an entry to view specific details about that entry using Intents**
+Kotlin, Android SDK (min SDK 24), RecyclerView, View Binding, CodePath's AsyncHttpClient for the TMDB requests, Glide for images.
 
-The following **optional** features are implemented:
+## How to run it
 
-- [x] **Add another API call and RecyclerView that lets the user interact with different data.**
-- [x] **Add rounded corners to the images using the Glide transformations**
-- [x] **Implement a shared element transition when user clicks into the details of a movie**
+1. Get a free TMDB API key. TMDB's [getting started guide](https://developer.themoviedb.org/docs/getting-started) explains how.
+2. Clone the repo and add this line to `local.properties` in the project root (Android Studio creates the file the first time it opens the project):
 
-The following **additional** features are implemented:
+   ```properties
+   TMDB_API_KEY=your_key
+   ```
 
-- [ ] None
+3. Open the project in Android Studio and run the `app` configuration on an emulator or a device.
 
-## Video Walkthrough
+`local.properties` is in `.gitignore`, so the key stays on your machine. Without a valid key the app still builds, but the lists stay empty and a "Request failed" message appears.
 
-Here's a walkthrough of implemented user stories:
+## What I'd point a reader to
 
-<img src='FlixterPlusPt2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-## Notes
-
-Challenges encountered: Ensuring TMDB image paths were converted into full image URLs, keeping two lists responsive while loading from the API, and correctly matching transition names between list items and the details screen for shared element transitions.
+- `MainActivity.kt`: one `fetchMovies` function loads both lists from different endpoints.
+- `MainActivity.kt` and `MovieDetailActivity.kt`: the transition name is set per movie and passed to the details screen, so the right poster animates.
 
 ## License
 
