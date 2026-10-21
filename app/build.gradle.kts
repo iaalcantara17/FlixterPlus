@@ -2,6 +2,10 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
+val localProperties = java.util.Properties().apply {
+    rootProject.file("local.properties").takeIf { it.exists() }?.inputStream()?.use { load(it) }
+}
+
 android {
     namespace = "com.example.flixterplus"
     compileSdk {
@@ -17,7 +21,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        buildConfigField("String", "TMDB_API_KEY", "\"a07e22bc18f5cb106bfe4cc1f83ad8ed\"")
+        buildConfigField("String", "TMDB_API_KEY", "\"${localProperties.getProperty("TMDB_API_KEY", "")}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
